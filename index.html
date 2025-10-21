@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JAMB Registration Form</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="../src/output.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../src/style.css" />
+  </head>
+  <body class="p-4 sm:p-6 lg:p-8 font-Inter,sans-serif; bg-[#f3f4f6;]">
+    <div
+      class="max-w-4xl mx-auto bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-200"
+    >
+      <h1
+        class="text-3xl sm:text-4xl font-extrabold text-center text-gray-800 mb-8"
+      >
+        Exam Pro Registration
+      </h1>
+      <p class="text-center text-gray-600 mb-8">
+        Fill in your details accurately to complete your registration. All
+        fields are mandatory unless specified.
+      </p>
+
+      <form
+        id="registration-form"
+        class="grid grid-cols-1 md:grid-cols-2 gap-6"
+      >
+        <!-- Personal Information Section -->
+        <div
+          class="md:col-span-2 text-xl font-semibold text-blue-700 mb-2 border-b-2 border-blue-200 pb-2"
+        >
+          Personal Information
+        </div>
+
+        <!-- First Name -->
+        <div>
+          <label
+            for="first_Name"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >First Name <span class="text-red-500">*</span></label
+          >
+          <input
+            type="text"
+            id="first_Name"
+            name="first_Name"
+            required
+            class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+          />
+        </div>
+
+        <!-- Middle Name -->
+        <div>
+          <label
+            for="middle_Name"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >Middle Name</label
+          >
+          <input
+            type="text"
+            id="middle_Name"
+            name="middle_Name"
+            class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+          />
+        </div>
+
+        <!-- Last Name -->
+        <div>
+          <label
+            for="last_Name"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >Last Name <span class="text-red-500">*</span></label
+          >
+          <input
+            type="text"
+            id="last_Name"
+            name="last_Name"
+            required
+            class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+          />
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label
+            for="email"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >Email Address <span class="text-red-500">*</span></label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+          />
+        </div>
+
+        <!--password -->
+        <div>
+          <label
+            for="password"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >password<span class="text-red-500">*</span></label
+          >
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+          />
+        </div>
+
+        <!-- confirm password -->
+        <div>
+          <label
+            for="confirm_Password"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >Enter password Again <span class="text-red-500">*</span></label
+          >
+          <input
+            type="password"
+            id="confirm_Password"
+            name="confirm_Password"
+            required
+            class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+          />
+        </div>
+
+        <!-- National Identity Number (NIN) -->
+        <div>
+          <label
+            for="nin_Number"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >National Identity Number (NIN)
+            <span class="text-red-500">*</span></label
+          >
+          <input
+            type="text"
+            id="nin_Number"
+            name="nin_Number"
+            required
+            pattern="[0-9]{11}"
+            maxlength="11"
+            class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+            placeholder="11-digit NIN"
+          />
+        </div>
+
+        <!-- Date of Birth -->
+        <div>
+          <label
+            for="birth_Date"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >Date of Birth <span class="text-red-500">*</span></label
+          >
+          <input
+            type="date"
+            id="birth_Date"
+            name="birth_Date"
+            required
+            class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+          />
+        </div>
+
+        <!-- Sex -->
+
+        <div>
+          <label for="Sex" class="block text-sm font-medium text-gray-700 mb-1"
+            >Sex<span class="text-red-500">*</span></label
+          >
+          <select
+            id="Sex"
+            name="Sex"
+            required
+            class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+          >
+            <option value="">Select Status</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+
+        <!-- Marital Status -->
+        <div>
+          <label
+            for="marital_Status"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >Marital Status <span class="text-red-500">*</span></label
+          >
+          <select
+            id="marital_Status"
+            name="marital_Status"
+            required
+            class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+          >
+            <option value="">Select Status</option>
+            <option value="Single">Single</option>
+            <option value="Married">Married</option>
+            <option value="Divorced">Divorced</option>
+            <option value="Widowed">Widowed</option>
+          </select>
+        </div>
+
+        <!-- Nationality -->
+        <div>
+          <label
+            for="nationality"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >Nationality <span class="text-red-500">*</span></label
+          >
+          <input
+            type="text"
+            id="nationality"
+            name="nationality"
+            required
+            value="Nigerian"
+            class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+          />
+        </div>
+
+        <!-- Academic Information Section -->
+        <div
+          class="md:col-span-2 text-xl font-semibold text-blue-700 mb-2 border-b-2 border-blue-200 pb-2 mt-6"
+        >
+          Academic Information
+        </div>
+
+        <!-- Preferred Course -->
+        <div>
+          <label
+            for="course"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >Preferred Course of Study
+            <span class="text-red-500">*</span></label
+          >
+          <input
+            type="text"
+            id="course"
+            name="course"
+            required
+            class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+            placeholder="e.g., Computer Science"
+          />
+        </div>
+
+        <!-- First Choice Institution -->
+        <div>
+          <label
+            for="first_Institution"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >First Choice Institution <span class="text-red-500">*</span></label
+          >
+          <input
+            type="text"
+            id="first_Institution"
+            name="first_Institution"
+            required
+            class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+            placeholder="e.g., University of Lagos"
+          />
+        </div>
+
+        <!-- Second Choice Institution -->
+        <div>
+          <label
+            for="second_Institution"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >Second Choice Institution</label
+          >
+          <input
+            type="text"
+            id="second_Institution"
+            name="second_Institution"
+            class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+            placeholder="Optional"
+          />
+        </div>
+
+        <!-- Third Choice Institution -->
+        <div>
+          <label
+            for="third_Institution"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >Third Choice Institution</label
+          >
+          <input
+            type="text"
+            id="third_Institution"
+            name="third_Institution"
+            class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+            placeholder="Optional"
+          />
+        </div>
+
+        <!-- Preferred Location for Exam -->
+        <div>
+          <label
+            for="exam_Location"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >Preferred Location for Exam
+            <span class="text-red-500">*</span></label
+          >
+          <input
+            type="text"
+            id="exam_Location"
+            name="exam_Location"
+            required
+            class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+            placeholder="e.g., Lagos, Abuja"
+          />
+        </div>
+
+        <!-- O'Level Information -->
+        <div
+          class="md:col-span-2 text-lg font-medium text-gray-800 border-b border-gray-200 pb-1 mt-4"
+        >
+          O'Level Information
+        </div>
+
+        <!-- Number of Sittings -->
+        <div>
+          <label
+            for="sittings"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >Number of O'Level Sittings
+            <span class="text-red-500">*</span></label
+          >
+          <select
+            id="sittings"
+            name="sittings"
+            required
+            class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+          >
+            <option value="">Select Sittings</option>
+            <option value="1">1 Sitting</option>
+            <option value="2">2 Sittings</option>
+          </select>
+        </div>
+
+        <!-- O'Level Exam Type -->
+        <div>
+          <label
+            for="exam_Type"
+            class="block text-sm font-medium text-blue-700 mb-1"
+            >O'Level Exam Type <span class="text-red-500">*</span></label
+          >
+          <select
+            id="exam_Type"
+            name="exam_Type"
+            required
+            class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+          >
+            <option value="">Select Exam Type</option>
+            <option value="WAEC">WAEC</option>
+            <option value="NECO">NECO</option>
+            <option value="NABTEB">NABTEB</option>
+            <option value="GCE">GCE</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <!-- O'Level Year -->
+        <div>
+          <label
+            for="exam_Year"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >O'Level Year <span class="text-red-500">*</span></label
+          >
+          <input
+            type="number"
+            id="exam_Year"
+            name="exam_Year"
+            required
+            min="1980"
+            max="2025"
+            class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+            placeholder="e.g., 2024"
+          />
+        </div>
+
+        <!-- Awaiting Results Checkbox -->
+        <div class="md:col-span-2 flex items-center mt-2">
+          <input
+            type="checkbox"
+            id="awaiting_Results"
+            name="awaiting_Results"
+            class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+            value="Off"
+          />
+          <label for="awaiting_Results" class="ml-2 block text-sm text-gray-900"
+            >I am awaiting O'Level results</label
+          >
+        </div>
+
+        <!-- Special Needs Section -->
+        <div
+          class="md:col-span-2 text-xl font-semibold text-blue-700 mb-2 border-b-2 border-blue-200 pb-2 mt-6"
+        >
+          Special Needs (Optional)
+        </div>
+
+        <!-- Disabilities/Special Needs -->
+        <div class="md:col-span-2">
+          <label
+            for="special_Needs"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >Do you have any disabilities or special needs? (Please
+            specify)</label
+          >
+          <textarea
+            id="special_Needs"
+            name="special_Needs"
+            rows="3"
+            class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+            placeholder="e.g., Visually impaired, Hearing impaired, Dyslexia, etc."
+          ></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="md:col-span-2 mt-8">
+          <button
+            type="submit"
+            id="submitButton"
+            class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold text-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150 ease-in-out shadow-md hover:shadow-lg"
+          >
+            Submit Exam Pro Registration
+          </button>
+        </div>
+        <p id="message" class="text-center text-sm mt-4"></p>
+      </form>
+    </div>
+
+    <!-- Custom Modal for Messages -->
+    <div id="customModal" class="hidden">
+      <div class="modal-content">
+        <span class="modal-close-button" onclick="closeModal()">&times;</span>
+        <div id="modalSpinner" class="loading-spinner hidden"></div>
+        <h2 id="modalTitle" class="text-2xl font-bold text-gray-800 mb-4"></h2>
+        <p id="modalMessage" class="text-gray-700 mb-6"></p>
+        <button
+          id="modalCloseBtn"
+          onclick="closeModal()"
+          class="bg-blue-600 text-white py-2 px-5 rounded-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150 ease-in-out"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="../script/supaBase.js"></script>
+  </body>
+</html>
