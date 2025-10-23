@@ -2,7 +2,6 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 
 const supabase = createClient(
   "https://qbksefoftvyiouvluhuk.supabase.co",
-
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFia3NlZm9mdHZ5aW91dmx1aHVrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAwMTQ0NzcsImV4cCI6MjA2NTU5MDQ3N30.N54b_hcce6x-IhmuOYksMXcoMyXurcku0eHGgUsiKbo"
 );
 
@@ -31,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
   function isEmailValid(email) {
     if (!email || typeof email !== "string") return false;
     email = email.trim();
@@ -97,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       try {
+        // Step 1: Create auth user
         const { data: authData, error: authError } = await supabase.auth.signUp(
           {
             email,
@@ -108,45 +109,56 @@ document.addEventListener("DOMContentLoaded", () => {
                 }${last_Name}`,
                 birth_Date: birth_Date,
               },
-
               emailRedirectTo: "http://localhost:5500/confirm.html",
             },
           }
         );
 
-        if (authError) throw authError;
+        if (authError) {
+          console.error("Auth Error Details:", authError);
+          throw authError;
+        }
 
-        const { error: insertError } = await supabase.from("user").insert([
-          {
-            auth_id: authData.user.id,
-            last_Name: last_Name,
-            middle_Name: middle_Name,
-            first_Name: first_Name,
-            email: email,
-            nin_Number: nin_Number,
-            birth_Date: birth_Date,
-            marital_Status: marital_Status,
-            Sex: Sex,
-            nationality: nationality,
-            course: course,
-            first_Institution: first_Institution,
-            second_Institution: second_Institution,
-            third_Institution: third_Institution,
-            exam_Location: exam_Location,
-            sittings: sittings,
-            exam_Type: exam_Type,
-            awaiting_Results: awaiting_Results,
-            special_Needs: special_Needs,
-          },
-        ]);
+        // Step 2: Insert into user table
+        const { data: insertData, error: insertError } = await supabase
+          .from("user")
+          .insert([
+            {
+              auth_id: authData.user.id,
+              last_Name: last_Name,
+              middle_Name: middle_Name,
+              first_Name: first_Name,
+              email: email,
+              nin_Number: nin_Number,
+              birth_Date: birth_Date,
+              marital_Status: marital_Status,
+              Sex: Sex,
+              nationality: nationality,
+              course: course,
+              first_Institution: first_Institution,
+              second_Institution: second_Institution,
+              third_Institution: third_Institution,
+              exam_Location: exam_Location,
+              sittings: sittings,
+              exam_Type: exam_Type,
+              awaiting_Results: awaiting_Results,
+              special_Needs: special_Needs,
+            },
+          ]);
 
-        if (insertError) throw insertError;
+        if (insertError) {
+          console.error("Insert Error Details:", insertError);
+          console.error("Error Code:", insertError.code);
+          console.error("Error Message:", insertError.message);
+          console.error("Error Details:", insertError.details);
+          throw insertError;
+        }
 
         alert("Signup complete! Check your email to confirm.");
         form.reset();
         updateAuthUI(authData.user);
       } catch (error) {
-        console.error("Error:", error);
+        console.error("Full Error:", error);
         alert("Error: " + error.message);
       }
     });
