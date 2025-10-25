@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }${last_Name}`,
                 birth_Date: birth_Date,
               },
-              emailRedirectTo: "http://localhost:5500/confirm.html",
+              emailRedirectTo: "https://quizflowz.netlify.app/confirm.html",
             },
           }
         );
@@ -164,3 +164,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
